@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Header */
+h1 {
+    background-color: #0077b6;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin: 0;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Flight List Container */
+ul {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las tarjetas se ajusten en varias filas si no caben */
+    list-style: none;
+    padding: 0;
+    margin: 20px auto;
+    max-width: 1200px; /* Anchura máxima del contenedor */
+    justify-content: center; /* Centra las tarjetas */
+    gap: 15px; /* Espacio entre las tarjetas */
+}
+
+/* Individual Flight Card */
+li {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    flex: 0 1 calc(30% - 15px); /* Cada tarjeta ocupa el 30% del ancho menos el espacio */
+    box-sizing: border-box; /* Incluye el padding en el tamaño total */
+}
+
+/* Hover Effect for Items */
+li:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Flight Details */
+h4 {
+    color: #0077b6;
+    margin: 0 0 10px;
+    font-size: 1.25rem;
+}
+
+p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    ul {
+        gap: 10px; /* Reduce el espacio entre tarjetas en pantallas pequeñas */
+    }
+
+    li {
+        flex: 0 1 calc(45% - 10px); /* Tarjetas más grandes en pantallas pequeñas */
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h4 {
+        font-size: 1.1rem;
+    }
+
+    p {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    li {
+        flex: 0 1 calc(100% - 10px); /* Cada tarjeta ocupa el 100% del ancho en pantallas muy pequeñas */
+    }
+}
