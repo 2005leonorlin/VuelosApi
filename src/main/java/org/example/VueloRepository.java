@@ -40,4 +40,8 @@ public interface VueloRepository extends MongoRepository<Vuelo, String> {
      * @return una lista de vuelos que tienen la ciudad de origen especificada
      */
     public List<Vuelo> findByOrigenciudad(String ciudad);
+
+
+
+
 }

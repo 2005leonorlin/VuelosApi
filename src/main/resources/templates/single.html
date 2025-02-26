@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${vuelo.numeroVuelo}"/>
+    <link rel="stylesheet" href="/single.css">
+</head>
+<body>
+    <h1 th:text="${vuelo.numeroVuelo}"/>
+    <p><strong>Aerolínea:</strong>
+        <span th:text="${vuelo.aerolinea}"></span></p>
+    <p><strong>Origen:</strong>
+        <span th:text="${vuelo.origennombre}"/>
+        (<span th:text="${vuelo.origenciudad}"/>
+        - <span th:text="${vuelo.origenpais}"/>)
+    </p>
+    <p><strong>Destino:</strong>
+        <span th:text="${vuelo.destinonombre}"/>
+        (<span th:text="${vuelo.destinociudad}"/>
+        - <span th:text="${vuelo.destinopais}"/>)
+    </p>
+    <p><strong>Hora de salida:</strong>
+        <span th:text="${vuelo.horaSalida}"/>
+    </p>
+    <p><strong>Hora de llegada:</strong>
+        <span th:text="${vuelo.horaLlegada}"/>
+    </p>
+    <p><strong>Estado:</strong>
+        <span th:text="${vuelo.estado}"/>
+    </p>
+    <a href="/web/">Volver</a>
+</body>
+</html>

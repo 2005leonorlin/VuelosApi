@@ -15,7 +15,6 @@ public class Vuelo {
      * El identificador único del vuelo.
      */
     @Id
-    @Field("_id")
     private String id;
 
     /**

@@ -1,0 +1,40 @@
+<!DOCTYPE html >
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+  <title>Vuelos desde <span th:text="${ciudad}"></span></title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="main-header">
+  <h1>Vuelos desde <span th:text="${ciudad}"></span></h1>
+  <div class="header-nav">
+    <div th:if="${usuario}" class="user-menu">
+      <span th:text="${usuario.user}"></span>
+      <a href="/web/" class="nav-button">Ver Vuelos</a>
+      <a href="/web/aerolineas" class="nav-button">Ver Aerolíneas</a>
+      <a href="/web/origen/ciudades" class="nav-button">Ciudades de Origen</a>
+      <a href="/login/exit" class="nav-button">Salir</a>
+    </div>
+    <div th:unless="${usuario}" class="login-menu">
+      <a href="/login" class="nav-button">Login</a>
+    </div>
+  </div>
+</header>
+
+<ul>
+  <li th:each="vuelo : ${vuelos}">
+    <a th:href="@{'/web/' + ${vuelo.id}}">
+      <h4 th:text="'Vuelo: ' + ${vuelo.numeroVuelo}"></h4>
+      <p th:text="'Aerolínea: ' + ${vuelo.aerolinea}"></p>
+      <p th:text="'Origen: ' + ${vuelo.origenciudad} + ', ' + ${vuelo.origenpais}"></p>
+      <p th:text="'Destino: ' + ${vuelo.destinociudad} + ', ' + ${vuelo.destinopais}"></p>
+      <p th:text="'Estado: ' + ${vuelo.estado}"></p>
+    </a>
+  </li>
+</ul>
+<div th:if="${vuelosEmpty}">
+  <p>No hay vuelos disponibles desde <span th:text="${ciudad}"></span>.</p>
+</div>
+</body>
+</html>

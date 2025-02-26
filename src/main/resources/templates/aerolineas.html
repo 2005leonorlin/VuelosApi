@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <title>Listado de Aerolíneas</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="main-header">
+  <h1>Listado de Aerolíneas</h1>
+  <div class="header-nav">
+    <div th:if="${usuario}" class="user-menu">
+      <span th:text="${usuario.user}"></span>
+      <a href="/web/" class="nav-button">Ver Vuelos</a>
+      <a href="/web/origen/ciudades" class="nav-button">Ciudades de Origen</a>
+      <a href="/login/exit" class="nav-button">Salir</a>
+    </div>
+  </div>
+</header>
+
+<ul>
+  <li th:each="aerolinea : ${aerolineas}">
+    <a th:href="@{'/web/aerolinea/' + ${aerolinea}}">
+      <h4 th:text="${aerolinea}"></h4>
+      <p th:text="'Ver todos los vuelos de ' + ${aerolinea}"></p>
+    </a>
+  </li>
+</ul>
+</body>
+</html>

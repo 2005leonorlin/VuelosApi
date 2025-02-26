@@ -2,31 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Listado de Vuelos</title>
+    <title th:text="'Vuelos de ' + ${aerolinea}"></title>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 <header class="main-header">
-    <h1 th:text="${titulo}"></h1>
+    <h1 th:text="'Vuelos de ' + ${aerolinea}"></h1>
     <div class="header-nav">
         <div th:if="${usuario}" class="user-menu">
             <span th:text="${usuario.user}"></span>
             <a href="/web/aerolineas" class="nav-button">Ver Aerolíneas</a>
+            <a href="/web/" class="nav-button">Ver Vuelos</a>
             <a href="/web/origen/ciudades" class="nav-button">Ciudades de Origen</a>
             <a href="/login/exit" class="nav-button">Salir</a>
-
         </div>
         <div th:unless="${usuario}" class="login-menu">
             <a href="/login" class="nav-button">Login</a>
         </div>
     </div>
 </header>
-
 <ul>
-    <li class="new" th:if="${usuario}">
-        <a href="/web/new">Nuevo vuelo</a>
-    </li>
-    <li th:each="vuelo:${vuelos}">
+    <li th:each="vuelo : ${vuelos}">
         <a th:href="@{'/web/'+${vuelo.id}}">
             <h4 th:text="'Vuelo: ' + ${vuelo.numeroVuelo}"></h4>
             <p th:text="'Aerolínea: ' + ${vuelo.aerolinea}"></p>
@@ -36,5 +32,9 @@
         </a>
     </li>
 </ul>
+
+<div th:if="${#lists.isEmpty(vuelos)}" class="no-flights">
+    <p>No hay vuelos disponibles para esta aerolínea.</p>
+</div>
 </body>
 </html>

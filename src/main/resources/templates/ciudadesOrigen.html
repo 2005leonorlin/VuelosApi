@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <title>Ciudades de Origen</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="main-header">
+  <h1>Ciudades de Origen</h1>
+  <div class="header-nav">
+    <div th:if="${usuario}" class="user-menu">
+      <span th:text="${usuario.user}"></span>
+      <a href="/web/" class="nav-button">Ver Vuelos</a>
+      <a href="/web/aerolineas" class="nav-button">Ver Aerolíneas</a>
+
+      <a href="/login/exit" class="nav-button">Salir</a>
+    </div>
+    <div th:unless="${usuario}" class="login-menu">
+      <a href="/login" class="nav-button">Login</a>
+    </div>
+  </div>
+</header>
+
+
+<ul>
+  <li th:each="ciudad : ${ciudades}">
+    <a th:href="@{'/web/origen/ciudad/' + ${ciudad}}">
+      <h4 th:text="${ciudad}"></h4>
+    </a>
+  </li>
+</ul>
+
+<!-- Mensaje si no hay ciudades -->
+<div th:if="${ciudades.empty}">
+  <p>No hay ciudades de origen disponibles.</p>
+</div>
+
+
+</body>
+</html>
