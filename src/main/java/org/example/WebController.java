@@ -195,8 +195,6 @@ public class WebController {
 
         model.addAttribute("vuelos", vuelos);
         model.addAttribute("ciudad", ciudad);
-
-
         User user = (User) session.getAttribute("user");
         model.addAttribute("usuario", user);
 
